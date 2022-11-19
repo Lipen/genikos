@@ -2,8 +2,13 @@ package com.github.lipen.genikos
 
 import kotlin.reflect.typeOf
 
-interface GenericArray<T> : List<T> {
+interface GenericArray<T> : Iterable<T> {
+    val data: List<T>
+    val size: Int
+
+    operator fun get(index: Int): T
     operator fun set(index: Int, value: T)
+    override operator fun iterator(): Iterator<T>
 
     companion object {
         inline fun <reified T> new(size: Int): GenericArray<T> {
@@ -48,5 +53,3 @@ interface GenericArray<T> : List<T> {
         fun from(array: CharArray): GenericArray<Char> = CharArrayImpl(array)
     }
 }
-
-abstract class AbstractGenericArray<T>(data: List<T>) : GenericArray<T>, List<T> by data
