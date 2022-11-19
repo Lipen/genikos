@@ -12,3 +12,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Other ###
+/old/
