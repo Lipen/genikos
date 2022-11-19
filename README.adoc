@@ -1,0 +1,7 @@
+= Γενικός
+
+> Generic primitive arrays for Kotlin.
+
+image:https://github.com/Lipen/genikos/workflows/Build/badge.svg?branch=master["Build",link="https://github.com/Lipen/genikos/actions"]
+image:https://jitpack.io/v/Lipen/genikos.svg["JitPack",link="https://jitpack.io/p/Lipen/genikos"]
+image:https://hitsofcode.com/github/Lipen/genikos["Hits-of-Code",link="https://hitsofcode.com/view/github/Lipen/genikos"]
