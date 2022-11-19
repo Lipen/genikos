@@ -3,7 +3,7 @@ package com.github.lipen.genikos
 @JvmInline
 internal value class ArrayImpl<T>(
     private val inner: Array<*>,
-) : GenericArray<T> {
+) : GenericArray<T>, RandomAccess {
     @Suppress("UNCHECKED_CAST")
     val array: Array<T> get() = inner as Array<T>
 
@@ -26,7 +26,7 @@ internal value class ArrayImpl<T>(
 @JvmInline
 internal value class MutableListArrayImpl<T>(
     val inner: MutableList<T>,
-) : GenericArray<T> {
+) : GenericArray<T>, RandomAccess {
     override val data: List<T> get() = inner
     override val size: Int get() = inner.size
 
@@ -55,7 +55,7 @@ internal value class MutableListArrayImpl<T>(
 @JvmInline
 internal value class ByteArrayImpl(
     val array: ByteArray,
-) : GenericArray<Byte> {
+) : GenericArray<Byte>, RandomAccess {
     override val data: List<Byte> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -75,7 +75,7 @@ internal value class ByteArrayImpl(
 @JvmInline
 internal value class ShortArrayImpl(
     val array: ShortArray,
-) : GenericArray<Short> {
+) : GenericArray<Short>, RandomAccess {
     override val data: List<Short> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -95,7 +95,7 @@ internal value class ShortArrayImpl(
 @JvmInline
 internal value class IntArrayImpl(
     val array: IntArray,
-) : GenericArray<Int> {
+) : GenericArray<Int>, RandomAccess {
     override val data: List<Int> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -115,7 +115,7 @@ internal value class IntArrayImpl(
 @JvmInline
 internal value class LongArrayImpl(
     val array: LongArray,
-) : GenericArray<Long> {
+) : GenericArray<Long>, RandomAccess {
     override val data: List<Long> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -135,7 +135,7 @@ internal value class LongArrayImpl(
 @JvmInline
 internal value class FloatArrayImpl(
     val array: FloatArray,
-) : GenericArray<Float> {
+) : GenericArray<Float>, RandomAccess {
     override val data: List<Float> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -155,7 +155,7 @@ internal value class FloatArrayImpl(
 @JvmInline
 internal value class DoubleArrayImpl(
     val array: DoubleArray,
-) : GenericArray<Double> {
+) : GenericArray<Double>, RandomAccess {
     override val data: List<Double> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -175,7 +175,7 @@ internal value class DoubleArrayImpl(
 @JvmInline
 internal value class BooleanArrayImpl(
     val array: BooleanArray,
-) : GenericArray<Boolean> {
+) : GenericArray<Boolean>, RandomAccess {
     override val data: List<Boolean> get() = array.asList()
     override val size: Int get() = array.size
 
@@ -195,7 +195,7 @@ internal value class BooleanArrayImpl(
 @JvmInline
 internal value class CharArrayImpl(
     val array: CharArray,
-) : GenericArray<Char> {
+) : GenericArray<Char>, RandomAccess {
     override val data: List<Char> get() = array.asList()
     override val size: Int get() = array.size
 
