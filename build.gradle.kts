@@ -4,8 +4,10 @@ group = "com.github.Lipen"
 
 plugins {
     kotlin("jvm") version "1.7.20"
+    kotlin("plugin.allopen") version "1.7.20"
     id("fr.brouillard.oss.gradle.jgitver") version "0.9.1"
     id("com.github.ben-manes.versions") version "0.44.0"
+    id("me.champeau.jmh") version "0.6.8"
     `maven-publish`
 }
 
@@ -23,9 +25,6 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    testLogging {
-        events("passed", "skipped", "failed")
-    }
 }
 
 tasks.withType<KotlinCompile> {
@@ -52,6 +51,18 @@ publishing {
     repositories {
         maven(url = "$buildDir/repository")
     }
+}
+
+allOpen {
+    annotation("org.openjdk.jmh.annotations.State")
+}
+
+jmh {
+    // includes.set(listOf("Sorting"))
+    jmhVersion.set("1.36")
+    warmupIterations.set(1)
+    iterations.set(10)
+    timeOnIteration.set("1s")
 }
 
 tasks.wrapper {
